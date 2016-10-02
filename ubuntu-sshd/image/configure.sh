@@ -16,6 +16,9 @@ apt-get install -y busybox-syslogd
 apt-get install -y openssh-server
 mkdir -p /var/run/sshd
 
+# Clean up APT when done.
+apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
 #########################
 # Enhance sshd security #
 #########################
