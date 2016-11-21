@@ -12,23 +12,23 @@ where the standard sshd port, 22, will be exposed on your host and the directory
 
 ## Configuring the container
 
-This image is configured as follows :
+This image is configured as follows:
   * Disabled root login
   * Enabled RSA host auth
   * Disabled password auth
   * Disabled display forwarding
   * Disabled PAM module
 
-You might have noticied the
+You might have noticed the
 
     -v <path_to_host_dir>:/home/sshuser
 
-option in the first command provided. This allow you to mount a directory from the host onto the container's user home dir.
+option in the first command provided. This allow you to mount a directory from the host onto the container's user home directory.
 
 ### Adding an SSH key
 
 An ssh key is needed to log into this container.
-You must create a `.ssh` dir in the <path_to_host_dir>, then create a `authorized_keys2` file withiin the .ssh  directory.
+You must create a `.ssh` dir in the <path_to_host_dir>, then create a `authorized_keys2` file within the .ssh  directory.
 Finally add your ssh key to this file.
 
 ### Prevent history recording
@@ -41,7 +41,7 @@ For a more secure environment, I suggest you create a `.profile` file in the mou
 
 This will prevent command history recording.
 
-You should have the following tree :
+You should have the following tree:
 ```
 /path/on/host
 ├── .ssh
