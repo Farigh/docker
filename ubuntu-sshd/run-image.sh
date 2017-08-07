@@ -30,8 +30,8 @@ if [ -d "$docker_home_dir" ]; then
     echo "${CYAN_COLOR}Info: mounting dir '$docker_home_dir' as container's user home dir${RESET_COLOR}"
 fi
 
-docker_ps=`docker ps -a | grep $docker_name`
-if [ "$docker_ps" == "" ]; then
+docker_ps=$(docker ps -af "name=${docker_name}" --format "{{.Names}}" | grep "^${docker_name}$")
+if [ "${docker_ps}" != "${docker_name}" ]; then
     docker run $docker_run_opt
 elif [ "$option1" == "-f" ] || [ "$option2" == "-f" ]; then
    if [ "$(docker inspect -f {{.State.Running}} ${docker_name})" == "true" ]; then
