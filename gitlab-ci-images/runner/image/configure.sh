@@ -1,6 +1,6 @@
 #! /bin/bash
 
-docker_machine_version=0.12.2
+docker_machine_version=0.13.0
 dumb_init_version=1.2.0
 
 # Install needed packages
