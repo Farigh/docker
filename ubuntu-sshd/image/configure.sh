@@ -23,11 +23,10 @@ mkdir -p /var/run/sshd
 # Disable root login
 sed -i "s/^PermitRootLogin \(.*\)/PermitRootLogin no/" $sshd_config_file
 
-# Enable RSA host auth
-sed -i "s/^RhostsRSAAuthentication \(.*\)/RhostsRSAAuthentication yes/" $sshd_config_file
+# Enable host auth
 sed -i "s/^HostbasedAuthentication \(.*\)/HostbasedAuthentication yes/" $sshd_config_file
 
-# Disable password auth (uncomment if needed)
+# Disable clear text passwords auth (uncomment if needed)
 sed -i "s/^\(#\)*PasswordAuthentication \(.*\)/PasswordAuthentication no/" $sshd_config_file
 
 # Disable display forwarding
@@ -55,4 +54,4 @@ maxretry = 6
 EOF
 
 # Clean up APT when done.
-apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+apt-get autoremove --purge && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*

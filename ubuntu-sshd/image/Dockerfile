@@ -1,4 +1,4 @@
-FROM ubuntu:17.04
+FROM ubuntu:20.04
 MAINTAINER GARCIN David <david.garcin.pro@gmail.com>
 
 ADD configure.sh /configure
