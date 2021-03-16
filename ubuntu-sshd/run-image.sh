@@ -20,7 +20,7 @@ fi
 # NET_ADMIN capability needed by iptables
 docker_run_opt="--cap-add=NET_ADMIN -d -p ${host_port}:22 --name ${docker_name} ${docker_image_name}"
 
-RESET_COLOR=$(echo -en '\e[00m')
+RESET_COLOR=$(echo -en '\e[0m')
 RED_COLOR=$(echo -en '\e[0;31m')
 CYAN_COLOR=$(echo -en '\e[0;36m')
 

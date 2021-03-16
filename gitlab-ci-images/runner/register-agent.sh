@@ -1,7 +1,8 @@
 #! /bin/bash
-resolved_script_path=`readlink -f $0`
-current_script_dir=`dirname $resolved_script_path`
-current_full_path=`readlink -e $current_script_dir`
+
+resolved_script_path=$(readlink -f "$0")
+current_script_dir=$(dirname "${resolved_script_path}")
+current_full_path=$(readlink -e "${current_script_dir}")
 
 # TODO: use getopts
 option1=$1
@@ -35,14 +36,14 @@ chmod +x ${config_mount_dir}/register.sh
 docker_run_opt="-v ${config_mount_dir}:/etc/gitlab-runner"
 
 # Set instance name and image
-docker_run_opt=" ${docker_run_opt} --name ${docker_name} ${docker_image_name}"
+docker_run_opt="${docker_run_opt} --name ${docker_name} ${docker_image_name}"
 
-RESET_COLOR=$(echo -en '\e[00m')
+RESET_COLOR=$(echo -en '\e[0m')
 RED_COLOR=$(echo -en '\e[0;31m')
 CYAN_COLOR=$(echo -en '\e[0;36m')
 
-docker_ps=`docker ps -a | grep $docker_name`
-if [ "$docker_ps" != "" ]; then
+docker_ps=$(docker ps -a | grep "${docker_name}")
+if [ "${docker_ps}" != "" ]; then
    docker rm $docker_name 2>/dev/null
 fi
 
